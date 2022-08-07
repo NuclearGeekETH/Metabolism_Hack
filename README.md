@@ -1,2 +1,12 @@
 # Metabolism_Hack
- Project for The DevTeam for the Metabolism Hack
+ Project by The DevTeam
+
+The core of MintHound is a bot written in Python. Our website is built with HTML, CSS, Python and Flask. Flask renders the HTML using Python when the user searches for a wallet address or ENS name. We used the Zora API to query the data for mints and purchases. Python creates a unique website build for each request that is also pinned to IPFS using Web3.Storage. Our website renders the HTML for the mints and purchases and displays them after the button press. The website can be tested at: [website](http://208.109.34.47/).
+
+Our Discord bot is written with Discord.py and uses a command to activate the bot. The bot takes the user input to make two GraphQL queries to the Zora API. The results are assembled into OpenSea links, then Python generates the new HTML file with the links into a new build folder. The build folder is pinned to IPFS using Web3.Storage and the link is returned to the user in a Discord message. This takes less than 1 second. This is now easy to add new commands and queries based on user needs. Our Discord bot can be tested in the wallet-inspector channel in our AiFRENS Discord Server: [AiFRENS Discord](https://discord.gg/hNx7uZ5k3T)
+
+Our Twitter bot is also written with Python and uses the Tweepy module to listen and create tweets. The core of the bot is the same as our website and Discord bot with minor changes for each version. Our Twitter bot listens for all tweets using a stream that begin with @AiFrensBot. The tweet must start with @AiFrensBot and it must end with an Ethereum wallet address. If it finds a tweet that matches the conditions it then extracts out the wallet address and uses the Zora API to make two queries for recent mints and recent purchases. Python then creates a new website build in HTML and CSS and pins it to IPFS using Web3.Storage. The link is passed through our custom Gateway using Pinata and posted as a reply to the twitter post. This takes less than a second. Our Twitter bot can be found at: [Twitter](https://twitter.com/AiFrensBot). Check Tweets & Replies to see recent replies using MintHound.
+
+The branding was a big part of the project and we used OpenAI Dalle-2 to create the logo and OpenAI GPT-3 to sniff out the name "MintHound."
+
+We also built a React-App from the ground up to replace the Flask server for the website build and it is mostly functional in test but needs a little more time for production.

@@ -1,0 +1,38 @@
+<!doctype html>
+
+
+<head>
+    <title>Test</title> 
+    <meta charset=utf-8> 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    </script>
+    <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
+    <link rel="manifest" href="static/site.webmanifest">
+    <link rel="mask-icon" href="static/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">    
+    </head>
+    <style>
+        h1 {text-align: center; margin-top: 650px; margin-left: 200px;}
+        p {text-align: center;}
+        a {text-align: center;}
+        form {text-align: center; margin-left: 200px;}
+        div {text-align: center;}
+        body { 
+            background-image: url("static/test.png");
+            background-attachment: fixed;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-color: #ffffff;
+        }
+    </style>
+    <body>
+        <h1>Search a Wallet Address<br> or ENS Name</h1>
+        
+        <form style="text-align: center;" action="{{ url_for('get_site') }}" method="post">
+            <input type="text" name="site" id="site">
+            <a href=# id=test><button type="submit" id="test">Submit</button></a>
+        </form>  
+    </body>

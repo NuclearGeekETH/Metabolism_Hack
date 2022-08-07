@@ -105,17 +105,33 @@ def bot(website):
     name = time.time()
     address = website
     mints_list = mints(address)
-    mints_url = '<a href=' + ('<a href='.join(str(e) for e in mints_list)) + '<br></a>'
+    mints_url = '<a target="_blank" href=' + ('<a target="_blank" href='.join(str(e) for e in mints_list)) + '<br></a>'
     buys_list = buys(address)
-    buys_url = '<a href=' + ('<a href='.join(str(e) for e in buys_list)) + '<br></a>'
-    f = open('templates/' + 'return.html', 'w')
+    buys_url = '<a target="_blank" href=' + ('<a target="_blank" href='.join(str(e) for e in buys_list)) + '<br></a>'
+    f = open('templates/' + 'return.html', 'w+')
     html_template = """<html>
     <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+    <link rel="manifest" href="/static/site.webmanifest">
+    <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#5bbad5">
     <link rel= "stylesheet" type= "text/css" href="/static/mainpage.css">
-    <title>DevTeam Project</title>
+    <title>MintHound</title>
+    <script src="https://cdn.tailwindcss.com"></script>  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     </head>
     <body>
-    <h2>Welcome to The DevTeam Project</h2>
+            <section class="flex bg-teal-700">
+            <div class="w-full items-center content-center justify-center container mx-auto px-8 pt-10">
+              <div class="text-center">
+                <!-- <img src="/static/MintHound.png" alt="" /> -->
+                <img class="max-w-2xl mx-auto" src="/static/MintHound.png" alt="" />
+                <p class="-mt-8 lg:text-2xl text-white thanks">Thanks furry much for using MintHound!</p>
+                <div class="mt-8 mb-12 bg-white/50 mx-auto backdrop-blur-sm py-12 rounded-2xl max-w-5xl list">
     
     <p>The most recent mints from {address} are: <br><br>{mints}<br><br></p>
     <p>The most recent purchases from {address} are: <br><br>{buys}<br><br></p>
@@ -124,18 +140,18 @@ def bot(website):
     """.format(address=address, mints=mints_url, buys=buys_url)
     f.write(html_template)
     f.close()
-    filename = 'templates/' + 'return.html'
-    payload={}
-    files=[
-    ('file',(filename,open(filename,'rb')))
-    ]
-    response = requests.request("POST", pin_url, headers=headers, data=payload, files=files)
-    # print(response.text)
-    # ipfs_hash = response.json()['IpfsHash']
-    ipfs_hash = response.json()['cid']
-    link = 'https://aifrens.mypinata.cloud/ipfs/' + ipfs_hash
+    # filename = 'templates/' + 'return.html'
+    # payload={}
+    # files=[
+    # ('file',(filename,open(filename,'rb')))
+    # ]
+    # response = requests.request("POST", pin_url, headers=headers, data=payload, files=files)
+    # # print(response.text)
+    # # ipfs_hash = response.json()['IpfsHash']
+    # ipfs_hash = response.json()['cid']
+    # link = 'https://aifrens.mypinata.cloud/ipfs/' + ipfs_hash
     # print(link)
-    return link, name
+    # return link, name
     # link = ipfs_hash + '/' + filename
 
 

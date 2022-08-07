@@ -1,48 +1,20 @@
-h1 {text-align: center;}
-h2 {text-align: center;}
-p {text-align: center;}
-a {text-align: center;}
-div {text-align: center;}
-iframe {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(33, 33, 33);
 }
 
-p.a {
-margin: 30px 0;
-margin-top: 50px;
+a {
+    color: rgb(41, 41, 41) !important;
+    color: #0d3e3a !important;
+    font-weight:bold !important;
 }
-h2 {
-    margin-top: 25px;
-    color: rgb(255, 255, 255);
-}
-p {
-    color: rgb(255, 255, 255);
-}
-body { 
-        background-color: #050B2F;
-}
-a:link {
-color: rgb(255, 255, 255);
-background-color: transparent;
-text-decoration: none;
-}
-
 a:visited {
-color: pink;
-background-color: transparent;
-text-decoration: none;
+    color: #50948d !important;
+    font-weight: 300 !important;
 }
-
-a:hover {
-color: red;
-background-color: transparent;
-text-decoration: underline;
+.thanks {
+    font-size: 24px !important;
 }
-
-a:active {
-color: yellow;
-background-color: transparent;
-text-decoration: underline;
+.heading {
+    font-size:18px !important;
 }

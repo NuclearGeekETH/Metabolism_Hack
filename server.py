@@ -9,6 +9,7 @@ def start_thread(func, name=None, args = []):
     threading.Thread(target=func, name=name, args=args).start()
 
 app = Flask(__name__)
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 @app.route('/')
 def index():
@@ -21,15 +22,15 @@ def get_site():
     print(website)
     print('clicked')
     # link = start_thread(startBot, args=[website])
-    link, name = bot(website)
+    bot(website)
     # time.sleep(20)
     # print(link)
-  return render_template('return.html', link=link)
+  return render_template('return.html')
   
 
 if __name__ == '__main__':
-  # from waitress import serve
-  # serve(app, host="0.0.0.0", port=80)
+#   from waitress import serve
+#   serve(app, host="0.0.0.0", port=80)
   # app.run(host="0.0.0.0", ssl_context=context, threaded=True, port=80)
   app.run(host="0.0.0.0", port=3000)
   # app.run(debug=False)  
